@@ -16,6 +16,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+
   var isLoading = false;
   var fullnameController = TextEditingController();
   var emailController = TextEditingController();
@@ -28,6 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
     setState(() {
       isLoading = true;
     });
+
     AuthService.signUpUser(context, name, email, password)
         .then((firebaseUser) => {
               _getFirebaseUser(firebaseUser!),

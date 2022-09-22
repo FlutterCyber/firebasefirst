@@ -1,5 +1,5 @@
+import 'package:firebasefirst/pages/add_post.dart';
 import 'package:firebasefirst/services/auth_service.dart';
-import 'package:firebasefirst/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,29 +20,34 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushReplacementNamed(context, SignUpPage.id);
+              AuthService.signOutUser(context);
             },
-            icon: Icon(Icons.add),
+            icon: Icon(Icons.exit_to_app),
           ),
         ],
       ),
       body: Center(
         child: Container(
           height: 45,
-          width:200,
+          width: 200,
           color: Colors.blue,
           child: Center(
             child: TextButton(
-              onPressed: () {
-                AuthService.signOutUser(context);
-              },
+              onPressed: () {},
               child: Text(
-                "Log out",
+                "gfgf",
                 style: TextStyle(color: Colors.white),
               ),
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green,
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, AddPostPage.id);
+        },
       ),
     );
   }
