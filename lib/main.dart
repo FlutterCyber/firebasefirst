@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebasefirst/pages/add_post.dart';
+import 'package:firebasefirst/pages/add_post_page.dart';
 import 'package:firebasefirst/pages/home_page.dart';
 import 'package:firebasefirst/pages/signin_page.dart';
 import 'package:firebasefirst/services/preference_service.dart';
-import 'package:firebasefirst/signup_page.dart';
+import 'package:firebasefirst/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

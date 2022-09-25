@@ -1,3 +1,7 @@
+import 'package:firebasefirst/model/post_model.dart';
+import 'package:firebasefirst/pages/home_page.dart';
+import 'package:firebasefirst/services/RTDB_service.dart';
+import 'package:firebasefirst/services/preference_service.dart';
 import 'package:flutter/material.dart';
 
 class AddPostPage extends StatefulWidget {
@@ -13,16 +17,16 @@ class _AddPostPageState extends State<AddPostPage> {
   var nameController = TextEditingController();
   var surnameController = TextEditingController();
 
-  _addPost(){
-    String name = nameController.text.toString();
-    String surname = surnameController.text.toString();
+  _addPost() async {
+    String name1 = nameController.text.toString();
+    String surname1 = surnameController.text.toString();
 
+    String? userId = await Preference.getUserId();
+    Post post1 = new Post(userId: userId!, name: name1, surname: surname1);
 
-
-
-
-
-
+    RTDB.addPost(post1).then((value) => {
+    Navigator.pushReplacementNamed(context, HomePage.id),
+    });
   }
 
   @override

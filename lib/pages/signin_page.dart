@@ -4,7 +4,7 @@ import 'package:firebasefirst/services/auth_service.dart';
 import 'package:firebasefirst/services/preference_service.dart';
 import 'package:flutter/material.dart';
 
-import '../signup_page.dart';
+import 'signup_page.dart';
 
 class SignInPage extends StatefulWidget {
   static const String id = "sign_in_page";
