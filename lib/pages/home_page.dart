@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasefirst/pages/add_post_page.dart';
 import 'package:firebasefirst/services/RTDB_service.dart';
 import 'package:firebasefirst/services/auth_service.dart';
@@ -16,6 +19,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isLoading = false;
+  File? _image;
   List<Post> item = [];
 
   //Post post = new Post(userId: "12345", name: "Muhammad1", surname: "Togoyev1");
@@ -71,6 +76,16 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            height: 80,
+            width: 80,
+            child: post.img_url != null
+                ? Image.network(
+                    post.img_url,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset("assets/images/img.png"),
+          ),
           Text(
             post.name,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
